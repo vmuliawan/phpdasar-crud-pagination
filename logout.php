@@ -1,0 +1,18 @@
+<?php 
+    
+    // hapus session setelah logout
+    session_start();
+    $_SESSION = [];
+    session_unset();
+    session_destroy();
+
+    // logout lalu hapus cookie
+    setcookie('id','',time()-3600);
+    setcookie('key','',time()-3600);
+
+    require 'fungsi.php';
+
+    header("Location: login.php");
+    exit;
+
+?>
